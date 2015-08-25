@@ -1,4 +1,5 @@
 #pragma once
+//#include "ReportList.h"
 
 namespace TaskManagement_1 {
 
@@ -15,10 +16,12 @@ namespace TaskManagement_1 {
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+	//private:	ReportList^ report;			//詳細リストデータ
 	public:
 		MyForm(void)
 		{
 			InitializeComponent();
+			//this->report = gcnew ReportList();
 			//
 			//TODO: ここにコンストラクター コードを追加します
 			//
@@ -272,5 +275,13 @@ private: System::Void buttonDelete_Click(System::Object^  sender, System::EventA
 private: System::Void dateCalender_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
 	listTask->Items->Clear();
 }
+		 /*private:	void UpdateListMoney(void) {
+			 //リストボックスをクリア
+			 listTask->Items->Clear();
+			 //すべてを表示
+			 for each(ReportItem^ item in this->report->Items) {
+				 listTask->Items->Add(item);
+			 }
+		 }*/
 };
 }
