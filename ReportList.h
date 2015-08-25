@@ -2,6 +2,7 @@
 
 namespace TaskManagement {
 	using namespace System;
+	using namespace System::Collections::Generic;
 	//詳細データクラス
 	ref class ReportItem {
 	private:
@@ -15,7 +16,7 @@ namespace TaskManagement {
 	public:
 		//表示用メソッド
 		virtual String^ ToString() override;
-	public:
+	//public:
 		//プロパティ設定
 		property DateTime Date {
 			DateTime get() { return this->date; }
@@ -37,8 +38,25 @@ namespace TaskManagement {
 	//詳細リストクラス
 	ref class ReportList
 	{
+	private:
+		List<ReportItem^>^ items;
 	public:
 		ReportList();
+	public:
+		//リストのクリア
+		void Clear();
+		//リストに追加
+		void Add(DateTime date, String^ name, String^ kind, String^ memo);
+		void Add(ReportItem^ item);
+		//リストから削除
+		void Remove(DateTime date, String^ neme, String^ memo);
+		void Remove(ReportItem^ item);
+		//年月で選択
+		List<ReportItem^>^ Select(int year, int month);
+		//全リストの取得
+		property List<ReportItem^>^ Items {
+			List<ReportItem^>^ get() { return this->items; }
+		}
 	};
 }
 
