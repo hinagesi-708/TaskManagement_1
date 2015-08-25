@@ -35,10 +35,10 @@ namespace TaskManagement {
 		}
 	};
 	//詳細リストクラス
+	ref class ReportList
+	{
+	public:
+		ReportList();
+	};
 }
-ref class ReportList
-{
-public:
-	ReportList();
-};
 
