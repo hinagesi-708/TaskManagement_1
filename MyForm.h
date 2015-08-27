@@ -245,37 +245,37 @@ namespace TaskManagement_1 {
 		}
 #pragma endregion
 	private: System::Void buttonAdd_Click(System::Object^  sender, System::EventArgs^  e) {
-		Debug::WriteLine("追加ボタンをクリックしました");
-		//タイトル，分類，メモを取得する
-		String^ name = textName->Text;
-		String^ kind = comboKind->Text;
-		String^ memo = textMemo->Text;
-		//日付取得
-		String^ date = dateCalender->Text;
-		//フォーマット
-		String^ out = String::Format("{0} {1} {2}", name, kind, memo);
-		out = date + " " + out;
-		//リストに追加
-		listTask->Items->Add(out);
-	}
-private: System::Void buttonDelete_Click(System::Object^  sender, System::EventArgs^  e) {
-	//選択している項目を取得
-	int index = listTask->SelectedIndex;
-	//項目が選択されていない場合
-	if (index == -1) {
-		return;
-	}
-	//確認メッセージを表示
-	if (MessageBox::Show("本当に削除しますか？", "TaskManagement", MessageBoxButtons::OKCancel) != System::Windows::Forms::DialogResult::OK) {
-		return;
-	}
-	//項目を削除
-	listTask->Items->RemoveAt(index);
-}
-private: System::Void dateCalender_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
-	listTask->Items->Clear();
-}
-		 private:	void UpdateListMoney(void) {
+			Debug::WriteLine("追加ボタンをクリックしました");
+			//タイトル，分類，メモを取得する
+			String^ name = textName->Text;
+			String^ kind = comboKind->Text;
+			String^ memo = textMemo->Text;
+			//日付取得
+			String^ date = dateCalender->Text;
+			//フォーマット
+			String^ out = String::Format("{0} {1} {2}", name, kind, memo);
+			out = date + " " + out;
+			//リストに追加
+			listTask->Items->Add(out);
+		}
+	private: System::Void buttonDelete_Click(System::Object^  sender, System::EventArgs^  e) {
+			//選択している項目を取得
+			int index = listTask->SelectedIndex;
+			//項目が選択されていない場合
+			if (index == -1) {
+				return;
+			}
+			//確認メッセージを表示
+			if (MessageBox::Show("本当に削除しますか？", "TaskManagement", MessageBoxButtons::OKCancel) != System::Windows::Forms::DialogResult::OK) {
+				return;
+			}
+			//項目を削除
+			listTask->Items->RemoveAt(index);
+		}
+	private: System::Void dateCalender_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
+			listTask->Items->Clear();
+		}
+	private:	void UpdateListMoney(void) {
 			 //リストボックスをクリア
 			 listTask->Items->Clear();
 			 //すべてを表示
@@ -283,5 +283,5 @@ private: System::Void dateCalender_ValueChanged(System::Object^  sender, System:
 				 listTask->Items->Add(item);
 			 }
 		 }
-};
+	};
 }
